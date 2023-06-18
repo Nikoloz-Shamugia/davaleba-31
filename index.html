@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">click me</button>
+    <script>
+        // 1. შექმენით ფუნქია, რომელიც არგუმენტად მიიღებს რიცხვების  მასივს და დააბრუნებს ჯამს;
+        const numbersArr =[15, 16, 17, 18, 19];
+
+        function getSum (array){
+            let x = array.reduce(  (accumulator, currentValue) => accumulator + currentValue, 0,)
+            return x
+        }
+        let x = getSum(numbersArr)
+        console.log(x)
+        // 2 შექმენით ფუნქცია, რომელიც გამოიძახებს სხვა ფუნქციას
+        // function callbackFunction (id){
+        //     alert(`your id is ${id}`)
+        //     return id
+        // }
+        // let y = callbackFunction(7)
+        // console.log(y)
+        // 3. შექმენით ფუნქცია, რომელიც არგუმენტად მიიღებს რიცხვს და დააბრუნებს ამ რიცხვის კვადრატს
+        function getPoweredNumber(num){
+            let x = num * num
+            return x
+        }
+        let z = getPoweredNumber(8)
+        console.log(z)
+        // 4. შექმენით ფუნქცია, რომელიც არგუმენტად მიიღებს ობიექტს და დააბრუნებს ობიექტს, სადაც დამატებული იქნება ახალი თვისებები
+        function getUpdatedObject(person){
+            let x = {...person, status:'New', point: 40}
+            return x
+        }
+        let a = getUpdatedObject(numbersArr)
+        console.log(a)
+        // 5. შექმენით ფუნქცია, რომელიც არგუმენტად მიიღებს ორ რიცხვს და შეადარებს ამ ორ რიცხვს, თუ a > b-ზე დააბრუნოს 1, თუ  a < b  დააბრუნოს -1, სხვა შემთხვევაში 0;
+        function getOneOrZero (a , b){
+            let x = a > b ? 1 : 0;
+            return x
+        }
+        let b = getOneOrZero(5,7)
+        console.log(b)
+        // 6.შექმენით ფუნქცია რომელიც არგუმენტად მიიღებს ტექსტს, თუ ტექსტის სიგრძე ნაკლებია 6 ზე ფუნქციამ  არაფერი დააბრუნოს  (დაწერთ if პირობას და შიგნით უბრალოდ return)
+        function getTextLenght(text){
+            let x = text.length > 6 ? "good" :"";
+            return x;
+        }
+        let c = getTextLenght('abcdpqifojrv')
+        console.log(c)
+        // 7. დაწერეთ ნესტირებული ფუნქცია
+        function outerFunction() {
+            console.log("Outer function");
+
+            function innerFunction() {
+                console.log("Inner function");
+            }
+
+            innerFunction();
+        }
+        outerFunction();
+        // 8. დაწერეთ ფუნქცია რომელიც არგუმენტად მიიღებს მასივს და დააბრუნებს სტრინგს (გამოიყენეთ toString() მეთოდი)
+        function getString ( array){
+            let x = array.toString()
+            return x
+        }
+        let d = getString(numbersArr)
+        console.log(d)
+        // 9. დაწერეთ ფუნქცია რომელიც არგუმენტად მიიღებს სახელს, html ში შექმნის p ტეგს და ტექსტად გადასცემს  არგუმენტად მიღებულ სახელს.
+        function getDisplayedName(name) {
+            const p = document.createElement('p');
+            p.textContent = name;
+            document.body.appendChild(p);
+            return p;
+        }
+
+        getDisplayedName('nikoloz');
+        // 10. დაწერეთ ფუნქცია, რომელსაც ღილაკზე კლიკის დროს გამოიძახებთ და alert ში გამოიტანთ თქვენ სახელს და გვარს
+        function onClick (Fullname){
+            alert(Fullname)
+        }
+        const button = document.getElementById('button')
+        button.addEventListener('click' , () =>{
+            onClick('nikoloz shamugia')
+        })
+    </script>
+</body>
+</html>
